@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Card Game</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
 
@@ -59,6 +60,7 @@
 			if(firstrun){
 				firstrun = false;
 				buildCards();
+				shuffleArray(cards);
 			}
 			console.log("it works");
 		}
@@ -78,8 +80,23 @@
 					cards.push(card);
 				}
 			}
-			console.log(cards);
+			// console.log(cards);
 
+		}
+
+		function shuffleArray (array) {
+			for(var x = array.length - 1 ; x > 0; x--) {
+				var ii = Math.floor(Math.random() * (x+1));
+				var temp = array[x];
+				array[x] = array[ii];
+				array[ii] = temp; 
+
+			}
+			console.log(array);
+
+			return array;
+
+			
 		}
 
 	</script>
