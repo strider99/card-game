@@ -61,6 +61,7 @@
 				firstrun = false;
 				buildCards();
 				shuffleArray(cards);
+				dealCards(cards);
 			}
 			console.log("it works");
 		}
@@ -82,6 +83,13 @@
 			}
 			// console.log(cards);
 
+		}
+
+		function dealCards(array) {
+			for(var i = 0; i < array.length; i++){
+				var m = i % 2;
+				players[m].push(array[i]);
+			}
 		}
 
 		function shuffleArray (array) {
