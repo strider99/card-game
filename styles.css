@@ -1,0 +1,12 @@
+.icard {
+	position: absolute;
+}
+.hand {
+	position: relative;
+}
+.players {
+	float: left;
+	width: 49%;
+	min-height: 300px;
+	border: 1px solid black;
+}

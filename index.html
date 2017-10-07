@@ -50,6 +50,8 @@
 		var gameover = false;
 		var firstrun = true;
 		var fightButton = document.querySelector("#btnBattle");
+		var p1 = document.querySelector("#player1 .hand");
+		var p2 = document.querySelector("#player2 .hand");
 		
 
 		// Event Listeners
@@ -72,7 +74,20 @@
 				var card1 = players[0].shift();
 				var card2 = players[1].shift();
 				var pot = [card1, card2];
+				// update the html
+				p1.innerHTML = showCard(card1, 0);
+				p2.innerHTML = showCard(card2, 0);
+
 			}
+		}
+
+		// show the card. returns data to be updated to html to display cards
+		function showCard(c,p){
+			var move = p * 40;
+			var bgColor = (c.icon == "H" || c.icon == "D") ? "red" : "black";
+			var bCard = '<div class="icard" style="color:' + bgColor + '">' + c.num + ' &' + c.suit + ';</div>' ;
+			console.log(c, move);
+			return bCard;
 		}
 
 		// Build the deck of cards
