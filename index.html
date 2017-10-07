@@ -47,6 +47,7 @@
 		var cards = [];
 		// to store cards dealt to players a 2d Array
 		var players = [[],[]];
+		var gameover = false;
 		var firstrun = true;
 		var fightButton = document.querySelector("#btnBattle");
 		
@@ -63,9 +64,18 @@
 				shuffleArray(cards);
 				dealCards(cards);
 			}
-			console.log("it works");
+			attack();
 		}
 
+		function attack() {
+			if(!gameover){
+				var card1 = players[0].shift();
+				var card2 = players[1].shift();
+				var pot = [card1, card2];
+			}
+		}
+
+		// Build the deck of cards
 		function buildCards() {
 			cards = [];
 			for(var s in suits) {
@@ -85,12 +95,15 @@
 
 		}
 
+		// Deal the cards to both the players
 		function dealCards(array) {
 			for(var i = 0; i < array.length; i++){
 				var m = i % 2;
 				players[m].push(array[i]);
 			}
 		}
+
+		// Shuffle all the cards. Done whenver a new game starts after building the deck
 
 		function shuffleArray (array) {
 			for(var x = array.length - 1 ; x > 0; x--) {
