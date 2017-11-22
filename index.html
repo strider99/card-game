@@ -17,8 +17,11 @@
 		</div>
 		<div id="board">
 			<div id="player1" class="players">
-				<div class="score">
+				<div> SCORE :
 					
+					<span class="score">
+					
+					</span>
 				</div>
 				<div class="hand">
 					
@@ -26,8 +29,11 @@
 			</div>
 
 			<div id="player2" class="players">
-				<div class="score">
+				<div> SCORE :
 					
+					<span class="score">
+					
+					</span>
 				</div>
 				<div class="hand">
 					
@@ -52,6 +58,8 @@
 		var fightButton = document.querySelector("#btnBattle");
 		var p1 = document.querySelector("#player1 .hand");
 		var p2 = document.querySelector("#player2 .hand");
+		var s1 = document.querySelector("#player1 .score");
+		var s2 = document.querySelector("#player2 .score");
 		
 
 		// Event Listeners
@@ -81,6 +89,9 @@
 				checkWinner(card1, card2, pot);
 
 				// update scores
+				s1.innerHTML = players[0].length;
+				s2.innerHTML = players[1].length;;
+
 
 			}
 		}

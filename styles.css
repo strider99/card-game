@@ -9,6 +9,7 @@
 	display: inline-block;
 	top:0;
 	left: 0;
+	font-family: Verdana;
 
 }
 .cardtop {
@@ -46,4 +47,8 @@
 	width: 49%;
 	min-height: 300px;
 	border: 1px solid #ddd;
+}
+.score {
+	font-size: 1.5em;
+
 }
