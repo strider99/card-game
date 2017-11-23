@@ -40,6 +40,8 @@
 
 			<div id="action">
 				<button id="btnBattle" type="button" class="btn btn-basic"> FIGHT !</button>
+				<button id="btnBattle10" type="button" class="btn btn-orange"> 10 Rounds</button>
+				<button id="btnBattle50" type="button" class="btn btn-darkblue"> 50 Rounds</button>
 			</div>
 
 		</div>
@@ -52,8 +54,12 @@
 		// to store cards dealt to players a 2d Array
 		var players = [[],[]];
 		var gameover = false;
+		var timer;
+		var r = 0; //number of rounds remaining
 		var firstrun = true;
 		var fightButton = document.querySelector("#btnBattle");
+		var fightButton10 = document.querySelector("#btnBattle10");
+		var fightButton50 = document.querySelector("#btnBattle50");
 		var p1 = document.querySelector("#player1 .hand");
 		var p2 = document.querySelector("#player2 .hand");
 		var s1 = document.querySelector("#player1 .score");
@@ -65,9 +71,29 @@
 		// Event Listeners
 
 		fightButton.addEventListener('click', battle);
+		fightButton10.addEventListener('click', function(){
+			rounds(10);
+		});
+		fightButton50.addEventListener('click', function(){
+			rounds(50);
+		});
 
 		// functions
+		function rounds(a){
+			r = a;
+			timer = setInterval(function() {
+				battle()
+			},100);
+		}
+
 		function battle() {
+			if(timer){
+				r--;
+				outputMessage(`Rounds left ${r} `);
+				if(r < 1){
+					window.clearInterval(timer);
+				}
+			}
 			if(firstrun){
 				firstrun = false;
 				buildCards();
